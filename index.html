@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> PLM | Gestão Inteligente</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+ 
+  <main id="authScreen" class="auth-screen">
+    <section class="auth-brand-panel">
+      <div class="auth-logo">
+        <img src="assets/PLMlogotipo.png" alt="Logotipo PLM">
+      </div>
+      <div class="auth-message">
+        <h1>Da ideia ao lançamento, tudo conectado.</h1>
+        <p>Organize ideias, projetos, produtos, receitas e aprovações em um só lugar.</p>
+      </div>
+      <span class="auth-footnote">Gestão Inteligente do Ciclo de Vida de Produtos </span>
+    </section>
+    <section class="auth-form-panel">
+      <div class="auth-card">
+        <div class="auth-tabs nav nav-pills" role="tablist">
+          <button class="nav-link active" id="loginTab" type="button">Entrar</button>
+          <button class="nav-link" id="registerTab" type="button">Criar conta</button>
+        </div>
+        <form id="loginForm" class="auth-form">
+          <h2>Bem-vindo de volta</h2><p class="muted-text">Entre com os dados da sua conta.</p>
+          <label class="form-label" for="loginEmail">E-mail</label>
+          <input class="form-control" id="loginEmail" type="email" required autocomplete="username" placeholder="voce@empresa.com">
+          <label class="form-label mt-3" for="loginPassword">Senha</label>
+          <input class="form-control" id="loginPassword" type="password" required autocomplete="current-password" placeholder="Sua senha">
+          <button class="btn btn-primary w-100 mt-4" type="submit">Entrar no sistema</button>
+          <p class="auth-switch">Ainda não tem conta? <button type="button" class="link-button" data-show-register>Cadastre-se</button></p>
+        </form>
+        <form id="registerForm" class="auth-form d-none">
+          <h2>Criar sua conta</h2><p class="muted-text">Preencha seus dados para solicitar acesso.</p>
+          <label class="form-label" for="registerUsername">Nome de usuário</label>
+          
+          <input class="form-control" id="registerUsername" required maxlength="60" autocomplete="nickname" placeholder="Ex.: maria.silva">
+          <label class="form-label mt-3" for="registerName">Nome completo</label>
+          
+          <input class="form-control" id="registerName" required maxlength="120" autocomplete="name" placeholder="Seu nome completo">
+          <label class="form-label mt-3" for="registerPhone">Telefone</label>
+          <input class="form-control" id="registerPhone" type="tel" required autocomplete="tel" placeholder="(00) 00000-0000">
+          
+          <label class="form-label mt-3" for="registerEmail">E-mail corporativo</label>
+          <input class="form-control" id="registerEmail" type="email" required autocomplete="email" placeholder="voce@empresa.com">
+          <div class="row g-3 mt-0">
+            <div class="col-md-6">
+              <label class="form-label" for="registerDepartment">Departamento</label>
+              <select class="form-select" id="registerDepartment" required>
+                <option value="" selected disabled>Selecione</option>
+                <option>Produção</option><option>P&amp;D</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" for="registerProfile">Perfil</label>
+              <select class="form-select" id="registerProfile" disabled>
+                <option selected>Colaborador</option>
+              </select>
+              <div class="form-text">Novos cadastros entram como Colaborador. Alterações de perfil são feitas pelo ADM.</div>
+            </div>
+          </div>
+          <label class="form-label mt-3" for="registerPassword">Senha</label>
+          <input class="form-control" id="registerPassword" type="password" minlength="8" required autocomplete="new-password" placeholder="Mínimo de 8 caracteres">
+          <button class="btn btn-primary w-100 mt-4" type="submit">Criar conta</button>
+          <p class="auth-switch">Já tem uma conta? <button type="button" class="link-button" data-show-login>Entrar</button></p>
+          <p class="security-note">Se ainda não existir ADM geral, o primeiro cadastro pode configurar a conta administrativa do protótipo.</p>
+        </form>
+        <div id="authMessage" class="alert d-none mt-3" role="status"></div>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script><script src="js/script.js"></script>
+</body></html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PLM | Gestão Inteligente</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <div id="appShell" class="app-shell">
+      <aside class="sidebar" id="sidebar">
+         <a class="brand" href="ideias.html">
+                <div class="auth-logo">
+                  <img src="../assets/PLMlogotipo.png" alt="Logotipo PLM">
+                </div>
+            </a>
+            <div class="workspace">
+                <span class="workspace-icon">PLM</span>
+                <span>
+                    <b id="workspaceName">Minha empresa</b>
+                    <small>Workspace principal</small>
+                </span>
+            </div>
+        <p class="nav-label">CICLO DE VIDA</p>
+        <nav id="mainNav">
+        <a class="nav-link active" href="ideias.html" data-page="ideias">
+          ◇ <span>Ideias</span></a>
+        <a class="nav-link" href="projetos.html" data-page="projetos">
+          ▤ <span>Projetos</span></a>
+        <a class="nav-link" href="produtos.html" data-page="produtos">
+          □ <span>Produtos</span></a>
+        <a class="nav-link" href="receitas.html" data-page="receitas">
+          ♧ <span>Receitas</span></a>
+        <a class="nav-link" href="testesDeReceita.html" data-page="testes">
+          ✓ <span>Testes de receita</span></a>
+        <a class="nav-link" href="analiseDeCompras.html" data-page="compras">
+          $ <span>Análise de compras</span></a>
+        <a class="nav-link" href="marketing.html" data-page="marketing">
+          ◎ <span>Marketing</span></a>
+        <a class="nav-link" href="aprovacoes.html" data-page="aprovacoes">
+          ⇄ <span>Aprovações</span></a>
+        <a class="nav-link" href="liberacaoFinal.html" data-page="liberacoes">
+          ★ <span>Liberação final</span></a>
+        <p class="nav-label nav-space">ADMINISTRAÇÃO</p>
+        <a class="nav-link" href="usuarios.html" data-page="usuarios">
+          ♙ <span>Usuários</span></a>
+        <a class="nav-link" href="lixeira.html" data-page="lixeira">
+          🗑️ <span>Lixeira</span></a>
+      </nav>
+        <div class="sidebar-bottom">
+          <div class="logged-user">
+            <span class="avatar" id="userAvatar">U</span>
+            <span class="logged-user-text">
+              <b id="loggedUserName">Usuário</b>
+              <small id="loggedUserRole">Colaborador</small>
+            </span>
+            <button class="logout-button" id="logoutButton" title="Sair" aria-label="Sair">↪</button>
+          </div>
+        </div>
+      </aside>
+      <div class="page-shell">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menu">☰</button>
+          <div class="breadcrumbs">
+            Workspace <span>/</span> <b id="breadcrumbTitle">Lixeira</b>
+          </div>
+          <div class="top-actions">
+            <span class="top-user-label" id="topUserEmail"></span>
+            <span class="avatar top-avatar" id="topAvatar">U</span>
+          </div>
+        </header>
+        <main class="content" id="pagesContainer">
+          <section class="page active-page" id="page-lixeira" data-title="Lixeira" data-description="Itens excluídos pelo administrador podem ser restaurados." data-module="lixeira">
+            <div class="page-heading">
+              <div>
+                <p class="eyebrow">ADMINISTRAÇÃO</p>
+                <h1>Lixeira</h1>
+                <p class="description">Restaure itens excluídos ou esvazie a lixeira permanentemente.</p>
+              </div>
+              <button class="btn btn-outline-danger" type="button" data-empty-trash>🗑️ Esvaziar lixeira</button>
+            </div>
+            <div class="panel">
+              <div class="panel-toolbar">
+                <div>
+                  <h2>Itens excluídos</h2>
+                  <p>A exclusão é reversível enquanto o item estiver nesta lixeira.</p>
+                </div>
+                <input class="form-control table-search" data-search="lixeira" placeholder="Buscar na lixeira...">
+              </div>
+              <div class="table-responsive">
+                <table class="table align-middle data-table">
+                  <thead>
+                    <tr>
+                      <th>CÓDIGO</th>
+                      <th>IDENTIFICAÇÃO</th>
+                      <th>PROCESSO</th>
+                      <th>DATA DE EXCLUSÃO</th>
+                      <th>EXCLUÍDO POR</th>
+                      <th>AÇÕES</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbody-lixeira"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        </main>
+        <footer class="site-footer">© 2026 nexPLM · Gestão inteligente do ciclo de vida de produtos</footer>
+      </div>
+    </div>
+    <div class="modal fade" id="recordModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <form id="recordForm">
+            <div class="modal-header">
+              <div>
+                <h2 class="modal-title fs-5" id="recordModalTitle">Adicionar registro</h2>
+                <p class="modal-subtitle mb-0" id="recordModalSubtitle">Preencha os campos abaixo.</p>
+              </div>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body" id="recordFields"></div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary">Salvar registro</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="appToast" class="toast" role="status">
+        <div class="toast-body" id="toastText">Registro salvo.</div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+  </body>
+</html>
